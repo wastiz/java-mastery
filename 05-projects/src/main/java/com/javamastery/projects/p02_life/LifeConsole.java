@@ -1,0 +1,23 @@
+package com.javamastery.projects.p02_life;
+
+/** Анимация в консоли: глайдер на торе. Запусти после прохождения тестов. */
+public class LifeConsole {
+    public static void main(String[] args) throws InterruptedException {
+        Life life = Life.parse("""
+                .O..........
+                ..O.........
+                OOO.........
+                ............
+                ............
+                ............
+                ............
+                ............""", true);
+        for (int i = 0; i < 60; i++) {
+            System.out.print("\033[H\033[2J");
+            System.out.println("Generation " + i + ", population " + life.population());
+            System.out.println(life);
+            life = life.next();
+            Thread.sleep(150);
+        }
+    }
+}

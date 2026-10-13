@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: questboard
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,caches

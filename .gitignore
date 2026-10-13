@@ -1,0 +1,9 @@
+target/
+*.class
+.idea/
+*.iml
+.vscode/
+.DS_Store
+out/
+.mvn/wrapper/maven-wrapper.jar
+# свои решения можно коммитить — это твой репозиторий :)

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: bookstore
+server:
+  port: 8080

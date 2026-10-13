@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:library;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: false
+        generate_statistics: true
+  flyway:
+    enabled: true
+logging:
+  level:
+    org.hibernate.stat: warn

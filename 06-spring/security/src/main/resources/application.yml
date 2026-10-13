@@ -1,0 +1,10 @@
+app:
+  jwt:
+    # base64 от строки длиной 51 байт (для HS256 нужно минимум 32 байта). В проде — из переменной окружения!
+    secret: amF2YS1tYXN0ZXJ5LWNvdXJzZS0yMDI2LXN1cGVyLXNlY3JldC1zaWduaW5nLWtleSEh
+    ttl: 1h
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
