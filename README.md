@@ -1,7 +1,7 @@
 # ☕ Java Mastery
 
 Практическая часть курса «Java и Spring Boot до уровня Middle».
-Теория, порядок прохождения и трекер прогресса — в Notion: **NOTION_URL**
+Теория, порядок прохождения и трекер прогресса — в Notion: [Java Mastery в Notion](https://app.notion.com/p/3f8a7d76d9748135973ce2bc6a6bb7b2)
 
 Здесь только задачи: в каждом классе есть сигнатуры и подробное описание в javadoc,
 а вместо реализации — `throw new UnsupportedOperationException("TODO")`.
