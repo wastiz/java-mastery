@@ -26,10 +26,15 @@ case "$topic" in
     ;;
 esac
 
-declare -A modules=([b]=01-basics [c]=02-core [k]=03-concurrency [a]=04-algorithms [p]=05-projects)
-letter="${topic:0:1}"
-module="${modules[$letter]:-}"
-[[ -z "$module" ]] && { echo "Неизвестная тема: $topic"; exit 1; }
+# case вместо ассоциативного массива: macOS по умолчанию поставляется с bash 3.2
+case "${topic:0:1}" in
+  b) module=01-basics ;;
+  c) module=02-core ;;
+  k) module=03-concurrency ;;
+  a) module=04-algorithms ;;
+  p) module=05-projects ;;
+  *) echo "Неизвестная тема: $topic"; exit 1 ;;
+esac
 
 if [[ ${#topic} -eq 1 ]]; then
   exec mvn $quiet -pl "$module" test
@@ -39,4 +44,4 @@ dir=$(find "$module/src/test/java" -type d -name "${topic}_*" | head -1)
 [[ -z "$dir" ]] && { echo "Не нашёл тесты для темы $topic"; exit 1; }
 pkg=$(basename "$dir")
 echo "▶ $module / $pkg"
-exec mvn $quiet -pl "$module" test -Dtest="**/${pkg}/*Test" -Dsurefire.failIfNoSpecifiedTests=false
+exec mvn $quiet -pl "$module" test "-Dtest=**/${pkg}/*Test" -Dsurefire.failIfNoSpecifiedTests=false
